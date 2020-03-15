@@ -44,7 +44,10 @@ public enum Operation {
 
 
     private char symbole;
-
+    
+    public char getSymbole() {
+    	return this.symbole;
+    }
     Operation(char symbole){
 
         this.symbole= symbole;
@@ -52,6 +55,20 @@ public enum Operation {
 
     }
 
-    public abstract int eval(int op1, int op2) throws DivisionZeroException;
-
+    public abstract int eval(int op1, int op2) throws DivisionZeroException, IllegalArgumentException;
+    
+    public static Operation valueOf(char in) {
+    	char oper;	
+    	for(Operation val: values()) {
+    		
+    		oper = val.getSymbole();
+    		if(in == oper) {
+    			
+    			return val;
+    			
+    		}	
+    	
+    	}
+    	throw new IllegalArgumentException();
+    }
 }
