@@ -2,11 +2,11 @@ package uvsq;
 import java.util.Stack;
 public class Interpreteur {
 	
-	private Stack<Integer> pile;
-	private Stack<Integer> pilePrecedente;
+	protected Stack<Integer> pile;
+	protected Stack<Integer> pilePrecedente;
 	
-	public Interpreteur(Stack <Integer> pile) {
-		this.pile = pile;
+	public Interpreteur() {
+		this.pile = new Stack<Integer>();
 	}
 
 	public void undo() {
