@@ -1,5 +1,7 @@
 package uvsq;
 
+import java.util.Stack;
+
 public class Commande_Enregistrer implements Commande{
 
 	
@@ -13,9 +15,10 @@ public class Commande_Enregistrer implements Commande{
 	
 	@Override
 	public void execute() {
-		
+		this.moteurRPN.pilePrecedente = (Stack<Integer>) this.moteurRPN.pile.clone();
 		this.moteurRPN.pile.push(value);
-		
+		System.out.println("Pile precedente" +this.moteurRPN.pilePrecedente);
+		System.out.println(("Pile nouvelle" + this.moteurRPN.pile));
 	}
 	
 	public void setValeur(Integer val) {

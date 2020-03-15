@@ -1,5 +1,7 @@
 package uvsq;
 
+import java.util.Stack;
+
 public class Commande_Application implements Commande{
 
 	private MoteurRPN moteurRPN;
@@ -18,11 +20,12 @@ public class Commande_Application implements Commande{
 	
 	@Override
 	public void execute() {
-			
+
 		 Integer i = 0;
          if(this.moteurRPN.pile.size() > 1) {
              try {
-            	 i = operation.eval(this.moteurRPN.pile.pop(), this.moteurRPN.pile.pop());
+            	this.moteurRPN.pilePrecedente = (Stack<Integer>) this.moteurRPN.pile.clone();
+             	i = operation.eval(this.moteurRPN.pile.pop(), this.moteurRPN.pile.pop());
              }
              catch(DivisionZeroException e) {
             	 

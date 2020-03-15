@@ -6,7 +6,8 @@ import java.util.Map;
 public class Commande_Factory {
 
 	private final Map <String, Commande>commandes;
-	
+	private MoteurRPN moteur;
+
 	Commande_Factory() {
 		
 		this.commandes = new HashMap<>();
@@ -20,8 +21,10 @@ public class Commande_Factory {
 	}
 	
 	public void executeCommande(String name) {
-		if(this.commandes.containsKey(name))
+		if(this.commandes.containsKey(name)) {
 			this.commandes.get(name).execute();
+			System.out.println(this.moteur.pile.toString());
+		}
 	}
 	
 	public void setOperation(Operation op) {
@@ -43,7 +46,8 @@ public class Commande_Factory {
 	}
 	
 	public void init(MoteurRPN moteur) { 
-		this.addCommande("quit", new Commande_quit(moteur));
+		this.moteur = moteur;
+		this.addCommande("exit", new Commande_quit(moteur));
 		this.addCommande("undo", new Commande_undo(moteur));
 		this.addCommande("Application", new Commande_Application(moteur, Operation.PLUS));
 		this.addCommande("Enregistrer", new Commande_Enregistrer(moteur, 0));
