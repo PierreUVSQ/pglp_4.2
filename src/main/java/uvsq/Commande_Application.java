@@ -10,6 +10,12 @@ public class Commande_Application implements Commande{
 		this.operation = operation;
 	}
 	
+	public void setOperation(Operation operation) {
+		this.operation = operation;
+		
+	}
+	
+	
 	@Override
 	public void execute() {
 			

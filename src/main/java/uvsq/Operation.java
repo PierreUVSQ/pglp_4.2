@@ -71,4 +71,16 @@ public enum Operation {
     	}
     	throw new IllegalArgumentException();
     }
+    
+    public static boolean isOperation(char in) {
+    	for(Operation val : values()) {
+    		
+    		if(in == val.getSymbole()) {
+    			return true;
+    		}
+    		
+    	}
+    	
+    	return false;
+    }
 }
