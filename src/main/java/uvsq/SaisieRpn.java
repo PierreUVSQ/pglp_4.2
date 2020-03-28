@@ -11,7 +11,6 @@ public class SaisieRpn {
 
     this.moteur = moteur;
     this.scanner = new Scanner(System.in);
-
   }
 
   public void getInput() {

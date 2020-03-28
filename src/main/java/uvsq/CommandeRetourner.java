@@ -4,17 +4,17 @@ import java.util.Stack;
 
 public class CommandeRetourner implements Commande {
 
-  private MoteurRpn moteurRPN;
+  private MoteurRpn moteurRpn;
 
   private Stack<Integer> ret;
 
   public CommandeRetourner(MoteurRpn moteur) {
 
-    this.moteurRPN = moteur;
+    this.moteurRpn = moteur;
     this.ret = new Stack<Integer>();
   }
 
-  public Stack<Integer> Retourner() {
+  public Stack<Integer> retourner() {
 
     return ret;
   }
@@ -22,7 +22,7 @@ public class CommandeRetourner implements Commande {
   @Override
   public void execute() {
 
-    this.ret.addAll(this.moteurRPN.retourner());
-    this.Retourner();
+    this.ret.addAll(this.moteurRpn.retourner());
+    this.retourner();
   }
 }

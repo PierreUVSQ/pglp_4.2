@@ -37,7 +37,6 @@ public class MoteurRpn extends Interpreteur {
     return Collections.unmodifiableCollection(this.pilePrecedente);
   }
 
-
   public void returning() {
 
     String expression = new String();
@@ -53,11 +52,9 @@ public class MoteurRpn extends Interpreteur {
     this.pilePrecedente = nv;
   }
 
-
-  public void ajoutValeur(int val){
+  public void ajoutValeur(int val) {
 
     this.pile.push(val);
-
   }
 
   public void elseExec(String in) {
@@ -68,5 +65,4 @@ public class MoteurRpn extends Interpreteur {
 
     return this.pile.pop();
   }
-
 }

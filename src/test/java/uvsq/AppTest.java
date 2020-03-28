@@ -61,7 +61,7 @@ public class AppTest
     	c1.execute();
     	CommandeRetourner c2 = new CommandeRetourner(r);
     	c2.execute();
-    	Stack<Integer> tmp = c2.Retourner();
+    	Stack<Integer> tmp = c2.retourner();
     	Stack<Integer> test = new Stack <Integer>();
     	test.push(5);
     	test.push(4);

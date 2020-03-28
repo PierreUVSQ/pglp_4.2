@@ -16,7 +16,7 @@ public enum CalculatriceRpn {
 
   public abstract void exec() throws DivisionZeroException;
 
-  public static void main(String [] args) throws DivisionZeroException {
+  public static void main(String[] args) throws DivisionZeroException {
 
     CalculatriceRpn test = CALC;
     test.exec();

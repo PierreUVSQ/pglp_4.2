@@ -1,4 +1,5 @@
 package uvsq;
+
 import java.util.Stack;
 
 public class CommandeEnregistrer implements Commande {
@@ -12,7 +13,7 @@ public class CommandeEnregistrer implements Commande {
   }
 
   @Override
-  public void execute() {
+  public void execute() { // Charger d'enregistrer les opérandes
     Stack<Integer> test = new Stack<>();
     test.addAll(this.moteurRpn.retourner());
     this.moteurRpn.setPilePrecedente(test);

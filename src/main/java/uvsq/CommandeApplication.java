@@ -17,7 +17,7 @@ public class CommandeApplication implements Commande {
   }
 
   @Override
-  public void execute() {
+  public void execute() { // Charger de faire le calcul
 
     Integer i = 0;
     if (this.moteurRpn.retourner().size() > 1) {
@@ -27,7 +27,7 @@ public class CommandeApplication implements Commande {
         this.moteurRpn.setPilePrecedente(test);
         i = operation.eval(this.moteurRpn.pop(), this.moteurRpn.pop());
       } catch (DivisionZeroException e) {
-          System.out.println("Entrée invalide");
+        System.out.println("Entrée invalide");
       }
     }
     this.moteurRpn.ajoutValeur(i);

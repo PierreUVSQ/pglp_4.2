@@ -23,10 +23,20 @@ public enum Operation {
     }
   },
   DIV('/') {
-
+    /**
+     * Fonction qui effectue le calcul.
+     *
+     * @param op1 opérande 1
+     * @param op2 opérande 2
+     * @return resultat calcul
+     * @throws DivisionZeroException
+     */
     public int eval(int op1, int op2) throws DivisionZeroException {
-      if (op1 == 0) throw new DivisionZeroException();
-      else return op2 / op1;
+      if (op1 == 0) {
+        throw new DivisionZeroException();
+      } else {
+        return op2 / op1;
+      }
     }
   };
 
@@ -43,6 +53,12 @@ public enum Operation {
 
   public abstract int eval(int op1, int op2) throws DivisionZeroException, IllegalArgumentException;
 
+  /**
+   * Prend en paramètre un caractère et renvoie l'opération lui étant associé
+   *
+   * @param in caractère
+   * @return Operation
+   */
   public static Operation valueOf(char in) {
     char oper;
     for (Operation val : values()) {
@@ -56,6 +72,12 @@ public enum Operation {
     throw new IllegalArgumentException();
   }
 
+  /**
+   * Vérifie que le caractère passé en argument est bien une opération
+   *
+   * @param in caractère
+   * @return boolean
+   */
   public static boolean isOperation(char in) {
     for (Operation val : values()) {
 
