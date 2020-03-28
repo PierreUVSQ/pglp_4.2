@@ -31,7 +31,6 @@ public class MoteurRpn extends Interpreteur {
     return Collections.unmodifiableCollection(this.pile);
   }
 
-
   public void setPilePrecedente(Stack<Integer> nv) {
 
     this.pilePrecedente = nv;

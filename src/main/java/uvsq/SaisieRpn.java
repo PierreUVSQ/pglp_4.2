@@ -18,7 +18,12 @@ public class SaisieRpn {
     String in;
     in = this.scanner.next();
     if (in.matches("\\p{Digit}+")) {
-      this.moteur.enregistrer(Integer.parseInt(in));
+      try {
+        this.moteur.enregistrer(Integer.parseInt(in));
+      } catch (NumberFormatException n) {
+        System.out.println("Nombre trop grand");
+      }
+
     } else if (in.length() == 1 && Operation.isOperation(in.charAt(0))) {
       this.moteur.application(Operation.valueOf(in.charAt(0)));
     } else {

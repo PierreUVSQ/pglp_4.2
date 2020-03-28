@@ -20,7 +20,6 @@ public class CommandeRetourner implements Commande {
     return this.moteurRpn.retourner();
   }
 
-
   @Override
   public void execute() {
 
