@@ -14,10 +14,10 @@ import org.junit.Test;
 public class AppTest 
 {
     
-	MoteurRPN r;
+	MoteurRpn r;
 	@Before
 	public void init() {
-    	this.r = new MoteurRPN();
+    	this.r = new MoteurRpn();
     }
 
     @Test
@@ -32,7 +32,7 @@ public class AppTest
     @Test
     public void testEnregistrer() {
     	
-    	Commande_Enregistrer c1 = new Commande_Enregistrer(r, 5);
+    	CommandeEnregistrer c1 = new CommandeEnregistrer(r, 5);
     	c1.execute();
     	c1.setValeur(4);
     	c1.execute();
@@ -45,21 +45,21 @@ public class AppTest
     @Test
     public void testApplication() {
     	
-    	Commande_Enregistrer c1 = new Commande_Enregistrer(r, 5);
+    	CommandeEnregistrer c1 = new CommandeEnregistrer(r, 5);
     	c1.execute();
     	c1.setValeur(4);
     	c1.execute();
-    	Commande_Application c2 = new Commande_Application(r, Operation.PLUS);
+    	CommandeApplication c2 = new CommandeApplication(r, Operation.PLUS);
     	c2.execute();
     	assertEquals(9, r.pile.pop(), 0);
     }
     @Test
     public void testRetourner() {
-    	Commande_Enregistrer c1 = new Commande_Enregistrer(r, 5);
+    	CommandeEnregistrer c1 = new CommandeEnregistrer(r, 5);
     	c1.execute();
     	c1.setValeur(4);
     	c1.execute();
-    	Commande_Retourner c2 = new Commande_Retourner(r);
+    	CommandeRetourner c2 = new CommandeRetourner(r);
     	c2.execute();
     	Stack<Integer> tmp = c2.Retourner();
     	Stack<Integer> test = new Stack <Integer>();

@@ -3,17 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>uvsq</groupId>
-  <artifactId>pglp_4.2</artifactId>
+  <artifactId>pglp_5.1</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>pglp_4.2</name>
+  <name>pglp_5.1</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -24,14 +24,27 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-    <groupId>com.github.spotbugs</groupId>
-    <artifactId>spotbugs</artifactId>
-    <version>4.0.0</version>
-    <type>pom</type>
-</dependency>
-    
-    
+      <groupId>com.github.spotbugs</groupId>
+      <artifactId>spotbugs</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.derby</groupId>
+      <artifactId>derby</artifactId>
+      <version>10.8.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.6</version>
+    </dependency>
+
+
+
   </dependencies>
+
+
+
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -45,6 +58,9 @@
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
+          <configuration>
+            <addDefaultExcludes>false</addDefaultExcludes>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
@@ -75,43 +91,69 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        
-      <plugin>
-       <groupId>org.apache.maven.plugins</groupId>
-       <artifactId>maven-checkstyle-plugin</artifactId>
-       <version>3.1.1</version>
-       <configuration>
-         <configLocation>checkstyle.xml</configLocation>
-         <encoding>UTF-8</encoding>
-         <consoleOutput>true</consoleOutput>
-         <failsOnError>true</failsOnError>
-         <linkXRef>false</linkXRef>
-       </configuration>
-       <executions>
-         <execution>
-           <id>validate</id>
-           <phase>validate</phase>
-           <goals>
-             <goal>check</goal>
-           </goals>
-         </execution>
-       </executions>
-     </plugin>
-        
-        
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>3.1.1</version>
+          <configuration>
+            <configLocation>checkstyle.xml</configLocation>
+            <encoding>UTF-8</encoding>
+            <consoleOutput>true</consoleOutput>
+            <failsOnError>true</failsOnError>
+            <linkXRef>false</linkXRef>
+          </configuration>
+          <executions>
+            <execution>
+              <id>validate</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.0.0</version>
+          <dependencies>
+            <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+            <dependency>
+              <groupId>com.github.spotbugs</groupId>
+              <artifactId>spotbugs</artifactId>
+              <version>4.0.1</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+
+
+
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
-  
-   <reporting>
+
+  <reporting>
     <plugins>
       <plugin>
         <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
+        <artifactId>spotbugs</artifactId>
+        <version>4.0.1</version>
       </plugin>
     </plugins>
   </reporting>
-  
-  
-  
+
+
+
 </project>

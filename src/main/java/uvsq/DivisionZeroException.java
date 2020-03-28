@@ -2,11 +2,8 @@ package uvsq;
 
 public class DivisionZeroException extends Exception {
 
-    public DivisionZeroException(){
+  public DivisionZeroException() {
 
-        super("Cannot divide by zero");
-
-    }
-
-
+    super("Cannot divide by zero");
+  }
 }
