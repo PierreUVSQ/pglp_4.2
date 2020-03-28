@@ -1,5 +1,6 @@
 package uvsq;
 
+import java.util.Collection;
 import java.util.Stack;
 
 public class CommandeRetourner implements Commande {
@@ -14,10 +15,11 @@ public class CommandeRetourner implements Commande {
     this.ret = new Stack<Integer>();
   }
 
-  public Stack<Integer> retourner() {
+  public Collection<Integer> retourner() {
 
-    return ret;
+    return this.moteurRpn.retourner();
   }
+
 
   @Override
   public void execute() {

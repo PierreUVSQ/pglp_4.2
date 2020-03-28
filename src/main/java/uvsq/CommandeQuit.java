@@ -9,7 +9,7 @@ public class CommandeQuit implements Commande {
   }
 
   @Override
-  public void execute() {// fait quitter le programme
+  public void execute() { // fait quitter le programme
     this.interpreteur.quit();
   }
 }

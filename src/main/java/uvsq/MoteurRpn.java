@@ -7,7 +7,6 @@ import java.util.Stack;
 public class MoteurRpn extends Interpreteur {
 
   private CommandeFactory com;
-  private int valeur;
 
   public MoteurRpn() {
     super();
@@ -32,20 +31,6 @@ public class MoteurRpn extends Interpreteur {
     return Collections.unmodifiableCollection(this.pile);
   }
 
-  public Collection<Integer> retournerPrecedent() {
-
-    return Collections.unmodifiableCollection(this.pilePrecedente);
-  }
-
-  public void returning() {
-
-    String expression = new String();
-    for (Integer e : pile) {
-      expression += e;
-      expression += " ";
-    }
-    System.out.println(expression);
-  }
 
   public void setPilePrecedente(Stack<Integer> nv) {
 

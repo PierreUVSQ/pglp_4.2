@@ -10,12 +10,12 @@ public class SaisieRpn {
   public SaisieRpn(MoteurRpn moteur) {
 
     this.moteur = moteur;
-    this.scanner = new Scanner(System.in);
+    this.scanner = new Scanner(System.in, "UTF-8");
   }
 
   public void getInput() {
 
-    String in = new String();
+    String in;
     in = this.scanner.next();
     if (in.matches("\\p{Digit}+")) {
       this.moteur.enregistrer(Integer.parseInt(in));
