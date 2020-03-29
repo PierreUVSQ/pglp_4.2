@@ -7,6 +7,7 @@ import java.util.Stack;
 
 import org.junit.Before;
 import org.junit.Test;
+import uvsq.inter.MoteurRpn;
 
 /**
  * Unit test for simple App.
@@ -21,23 +22,14 @@ public class AppTest
     }
 
     @Test
-    public void testMoteurRPN() {
-    	
-    	r.pile.push(5);
-    	assertEquals(5, r.pile.pop(), 0);
-    	
-    	
-    }
-    
-    @Test
-    public void testEnregistrer() {
+    public void testCommandeEnregistrer() {
     	
     	CommandeEnregistrer c1 = new CommandeEnregistrer(r, 5);
     	c1.execute();
     	c1.setValeur(4);
     	c1.execute();
-    	assertEquals(4, r.pile.pop(), 0);
-    	assertEquals(5, r.pile.pop(), 0);
+    	assertEquals(4, r.pop(), 0);
+    	assertEquals(5, r.pop(), 0);
     	
     	
     }
@@ -51,7 +43,7 @@ public class AppTest
     	c1.execute();
     	CommandeApplication c2 = new CommandeApplication(r, Operation.PLUS);
     	c2.execute();
-    	assertEquals(9, r.pile.pop(), 0);
+    	assertEquals(9, r.pop(), 0);
     }
     @Test
     public void testRetourner() {
@@ -74,55 +66,50 @@ public class AppTest
 
     @Test
 	public void testAddition(){
-		MoteurRpn moteurRpn = new MoteurRpn();
-		moteurRpn.ajoutValeur(10);
-		moteurRpn.ajoutValeur(5);
-		moteurRpn.application(Operation.PLUS);
+		r.ajoutValeur(10);
+		r.ajoutValeur(5);
+		r.application(Operation.PLUS);
 		Stack<Integer> test = new Stack<>();
-		test.addAll(moteurRpn.retourner());
+		test.addAll(r.retourner());
 		assertEquals(15, test.pop(), 0);
 	}
 
 	@Test
 	public void testSoustraction(){
-		MoteurRpn moteurRpn = new MoteurRpn();
-		moteurRpn.ajoutValeur(10);
-		moteurRpn.ajoutValeur(5);
-		moteurRpn.application(Operation.MOINS);
+		r.ajoutValeur(10);
+		r.ajoutValeur(5);
+		r.application(Operation.MOINS);
 		Stack<Integer> test = new Stack<>();
-		test.addAll(moteurRpn.retourner());
+		test.addAll(r.retourner());
 		assertEquals(5, test.pop(), 0);
 	}
 
 	@Test
 	public void testMultiplication(){
-		MoteurRpn moteurRpn = new MoteurRpn();
-		moteurRpn.ajoutValeur(10);
-		moteurRpn.ajoutValeur(5);
-		moteurRpn.application(Operation.MULT);
+		r.ajoutValeur(10);
+		r.ajoutValeur(5);
+		r.application(Operation.MULT);
 		Stack<Integer> test = new Stack<>();
-		test.addAll(moteurRpn.retourner());
+		test.addAll(r.retourner());
 		assertEquals(50, test.pop(), 0);
 	}
 
 	@Test
 	public void testDivision(){
-		MoteurRpn moteurRpn = new MoteurRpn();
-		moteurRpn.ajoutValeur(10);
-		moteurRpn.ajoutValeur(5);
-		moteurRpn.application(Operation.DIV);
+		r.ajoutValeur(10);
+		r.ajoutValeur(5);
+		r.application(Operation.DIV);
 		Stack<Integer> test = new Stack<>();
-		test.addAll(moteurRpn.retourner());
+		test.addAll(r.retourner());
 		assertEquals(2, test.pop(), 0);
 	}
 
 	@Test
 	public void testEnregistrerMoteur(){
-		MoteurRpn moteurRpn = new MoteurRpn();
-		moteurRpn.ajoutValeur(10);
-		moteurRpn.ajoutValeur(5);
+		r.ajoutValeur(10);
+		r.ajoutValeur(5);
 		Stack<Integer> test = new Stack<>();
-		test.addAll(moteurRpn.retourner());
+		test.addAll(r.retourner());
 		Stack<Integer> compare = new Stack<>();
 		compare.push(10);
 		compare.push(5);

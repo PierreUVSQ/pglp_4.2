@@ -1,6 +1,7 @@
 package uvsq;
 
 import java.util.Stack;
+import uvsq.inter.MoteurRpn;
 
 public class CommandeApplication implements Commande {
 
@@ -21,15 +22,17 @@ public class CommandeApplication implements Commande {
 
     Integer i = 0;
     if (this.moteurRpn.retourner().size() > 1) {
+      Stack<Integer> test = new Stack<>();
+      test.addAll(this.moteurRpn.retourner());
+      this.moteurRpn.setPilePrecedente(test);
       try {
-        Stack<Integer> test = new Stack<>();
-        test.addAll(this.moteurRpn.retourner());
-        this.moteurRpn.setPilePrecedente(test);
+
         i = operation.eval(this.moteurRpn.pop(), this.moteurRpn.pop());
+        this.moteurRpn.ajoutValeur(i);
       } catch (DivisionZeroException e) {
-        System.out.println("Entrée invalide");
+        this.moteurRpn.undo();
+        System.out.println("Impossible de diviser par zéro");
       }
     }
-    this.moteurRpn.ajoutValeur(i);
   }
 }

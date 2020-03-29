@@ -1,4 +1,4 @@
-package uvsq;
+package uvsq.inter;
 
 import java.util.Stack;
 

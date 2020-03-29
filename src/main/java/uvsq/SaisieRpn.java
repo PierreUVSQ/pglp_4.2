@@ -1,18 +1,26 @@
 package uvsq;
 
 import java.util.Scanner;
+import uvsq.inter.MoteurRpn;
 
 public class SaisieRpn {
 
   private MoteurRpn moteur;
   private Scanner scanner;
 
+  /**
+   * Constructeur pour le moteur chargé d'exécuter les actions d'enregistrement des opérandes,
+   * d'applications et de retour.
+   *
+   * @param moteur Moteur choisie
+   */
   public SaisieRpn(MoteurRpn moteur) {
 
     this.moteur = moteur;
     this.scanner = new Scanner(System.in, "UTF-8");
   }
 
+  /** Récupère les données entrées et les envoie au moteur pour être traitées. */
   public void getInput() {
 
     String in;

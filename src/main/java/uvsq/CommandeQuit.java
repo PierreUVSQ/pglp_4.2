@@ -1,5 +1,7 @@
 package uvsq;
 
+import uvsq.inter.Interpreteur;
+
 public class CommandeQuit implements Commande {
 
   private Interpreteur interpreteur;

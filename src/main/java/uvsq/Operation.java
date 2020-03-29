@@ -29,7 +29,7 @@ public enum Operation {
      * @param op1 opérande 1
      * @param op2 opérande 2
      * @return resultat calcul
-     * @throws DivisionZeroException
+     * @throws DivisionZeroException Dans le cas où on divise pas zéro
      */
     public int eval(int op1, int op2) throws DivisionZeroException {
       if (op1 == 0) {
@@ -54,7 +54,7 @@ public enum Operation {
   public abstract int eval(int op1, int op2) throws DivisionZeroException, IllegalArgumentException;
 
   /**
-   * Prend en paramètre un caractère et renvoie l'opération lui étant associé
+   * Prend en paramètre un caractère et renvoie l'opération lui étant associé.
    *
    * @param in caractère
    * @return Operation
@@ -73,7 +73,7 @@ public enum Operation {
   }
 
   /**
-   * Vérifie que le caractère passé en argument est bien une opération
+   * Vérifie que le caractère passé en argument est bien une opération.
    *
    * @param in caractère
    * @return boolean

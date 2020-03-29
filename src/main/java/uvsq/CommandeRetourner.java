@@ -2,6 +2,7 @@ package uvsq;
 
 import java.util.Collection;
 import java.util.Stack;
+import uvsq.inter.MoteurRpn;
 
 public class CommandeRetourner implements Commande {
 
@@ -9,6 +10,11 @@ public class CommandeRetourner implements Commande {
 
   private Stack<Integer> ret;
 
+  /**
+   * Produit une commande retourner.
+   *
+   * @param moteur Moteur associée
+   */
   public CommandeRetourner(MoteurRpn moteur) {
 
     this.moteurRpn = moteur;
